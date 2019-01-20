@@ -1,6 +1,6 @@
 ## About 
 
-Project created in order to learn how do the sockets work at the very low level, also to understand basics of http protocol.
+Project created in order to learn how do the sockets work at the low level, also to understand basics of http protocol.
 
 #### Technologies used 
 * C 
