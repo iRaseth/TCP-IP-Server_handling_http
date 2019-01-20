@@ -19,3 +19,5 @@ Source code is in :
 Therefore either you can clone the whole repository or just download 'main' and 'index.html' into one directory.
 To run the project just run the executable file 'main' : 
 > ./main
+
+## Project created in 12.2018
