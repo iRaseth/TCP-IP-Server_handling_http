@@ -1,0 +1,91 @@
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 2006
+
+<!doctype html>
+<html>
+<head>
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <!-- JavaScript -->
+  <script>
+    "use strict";
+    //wait until the page is loaded so that,
+    //you can capture handlers of the elements
+    window.onload = function(){
+
+      const setHref = (easteregg, index, slash) => {
+
+        const elementEaster = document.getElementsByTagName("P")[0];
+        elementEaster.addEventListener("click",()=>{
+          window.location.pathname = easteregg;
+        });
+
+        const elementIndex = document.getElementsByTagName("P")[1];
+        elementIndex.addEventListener("click",()=>{
+          window.location.pathname = index;
+        });
+
+        const elementDefault = document.getElementsByTagName("P")[2];
+        elementDefault.addEventListener("click",()=>{
+          window.location.pathname = slash;
+        });
+
+      };
+
+      const nameHeader = () => {
+
+        let text = location.pathname.slice(1);
+        if(text == ""){
+          text = "default";
+        }
+        let span = document.getElementById("h1Span");
+
+        span.appendChild(document.createTextNode(text));
+
+      };
+
+      const printError = (error) => {
+          console.error(`Error occured: ${error}`);
+      };
+
+      try{
+        setHref("/easteregg","/index","/");
+      }catch(err){
+        printError(err);
+      }finally{
+        nameHeader();
+      }
+    }
+  </script>
+  <!-- Stylesheet -->
+  <style>
+    body{
+      font-family: 'Open Sans', sans-serif;
+    }
+    .container{
+      display:flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+    .c_h1{
+      text-align:center;
+      color:blue;
+    }
+    p{
+      text-align : center;
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <h1 class='c_h1'> C_project : <span id='h1Span'></span> html_template.</h1>
+    <div class='container'>
+      <p>Easteregg.</p>
+      <p>Index.</p>
+      <p>Default.</p>
+    </div>
+  </section>
+</body>
+</html>
